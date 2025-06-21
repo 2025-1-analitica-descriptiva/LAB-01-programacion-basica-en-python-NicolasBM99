@@ -25,7 +25,7 @@ def pregunta_09():
 
     """
     count = {}
-    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+    with open("files/input/data.csv", encoding="utf-8")  as csvfile:
         for row in csvfile:
             colum = row.strip().split("\t")
             if len(colum) >= 5:

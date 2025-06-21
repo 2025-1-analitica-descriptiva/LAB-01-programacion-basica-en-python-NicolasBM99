@@ -18,7 +18,7 @@ def pregunta_01():
 
 
     suma_total = 0
-    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+    with open("files/input/data.csv", encoding="utf-8")  as csvfile:
         for row in csvfile:
             row = row.strip()
             colum = row.split("\t")
