@@ -15,3 +15,17 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    sum_per_letter = {}
+
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.strip().split("\t")
+            letter = colum[0]
+            pars = colum[4].split(",")
+            sum_values = 0
+            for par in pars:
+                key, value = par.split(":")
+                sum_values += int(value)
+            sum_per_letter[letter] = sum_per_letter.get(letter, 0) + sum_values
+
+    return dict(sorted(sum_per_letter.items()))

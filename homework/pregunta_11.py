@@ -16,3 +16,14 @@ def pregunta_11():
 
 
     """
+    sum_per_letter = {}
+
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.strip().split("\t")
+            value = int(colum[1])
+            letters = colum[3].split(",")
+            for letter in letters:
+                sum_per_letter[letter] = sum_per_letter.get(letter, 0) + value
+
+    return dict(sorted(sum_per_letter.items()))

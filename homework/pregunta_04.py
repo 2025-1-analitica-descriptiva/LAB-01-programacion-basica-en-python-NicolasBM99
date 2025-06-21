@@ -26,3 +26,16 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    months={}
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.split("\t")
+            if len(colum) >= 3:
+                date = colum[2]
+                month = date.split("-")[1]  # YYYY-MM-DD → [YYYY, MM, DD]
+                months[month] = months.get(month, 0) + 1
+
+    return sorted(months.items())
+
+if __name__ == "__main__":
+    print(pregunta_04())

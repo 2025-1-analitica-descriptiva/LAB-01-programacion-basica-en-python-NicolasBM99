@@ -27,3 +27,17 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+    result = {}
+
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.strip().split("\t")
+            letter = colum[0]
+            num = int(colum[1])
+            if num not in result:
+                result[num] = set()
+            result[num].add(letter)
+
+    # Convertir sets en listas ordenadas
+    sorted_result = [(num, sorted(list(letter))) for num, letter in sorted(result.items())]
+    return sorted_result

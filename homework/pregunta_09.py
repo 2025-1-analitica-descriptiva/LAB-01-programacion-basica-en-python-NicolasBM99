@@ -24,3 +24,14 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    count = {}
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.strip().split("\t")
+            if len(colum) >= 5:
+                pars = colum[4].split(",")
+                for par in pars:
+                    key, _ = par.split(":")
+                    count[key] = count.get(key, 0) + 1
+
+    return dict(sorted(count.items()))

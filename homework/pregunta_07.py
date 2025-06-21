@@ -25,3 +25,15 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    answer = {}
+
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.strip().split("\t")
+            letter = colum[0]
+            num = int(colum[1])
+            if num not in answer:
+                answer[num] = []
+            answer[num].append(letter)
+
+    return sorted(answer.items())

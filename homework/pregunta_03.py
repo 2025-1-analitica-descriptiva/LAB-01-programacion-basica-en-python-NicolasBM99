@@ -15,3 +15,19 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    sum_per_letter = {}
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            colum = row.split("\t")
+            if len(colum) >= 2:
+                letter=colum[0]
+                try:
+                    num = int(colum[1])
+                    sum_per_letter[letter] = sum_per_letter.get(letter, 0) + num
+                except ValueError:
+                    pass
+    answer=sorted(sum_per_letter.items())
+    return answer
+
+if __name__ == "__main__":
+    print(pregunta_03())

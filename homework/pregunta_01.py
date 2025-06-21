@@ -14,3 +14,21 @@ def pregunta_01():
     214
 
     """
+
+
+
+    suma_total = 0
+    with open("C:/Users/nicoo/Documents/GitHub/LAB-01-programacion-basica-en-python-NicolasBM99/files/input/data.csv", encoding="utf-8")  as csvfile:
+        for row in csvfile:
+            row = row.strip()
+            colum = row.split("\t")
+            #print(row)
+            if len(colum) >= 2:
+                try:
+                    suma_total += int(colum[1])
+                except (IndexError, ValueError):
+                    pass 
+    return suma_total
+
+#if __name__ == "__main__":
+#    print(pregunta_01())
